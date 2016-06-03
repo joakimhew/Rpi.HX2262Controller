@@ -4,6 +4,9 @@ using System.Text;
 using System.Threading;
 using Windows.Devices.Gpio.GpioController;
 
+// Inspired by rc-switch on Github. 
+// Unfortunately, rc-switch does not work correctly and had to be rewritten.
+
 public class SwitchController
 {
     #region Fields
@@ -152,7 +155,7 @@ public class SwitchController
         WaitTicks(_delay);
 
         _pin.Write(GpioPinValue.Low);
-        WaitTicks(_delay);
+        WaitTicks(_delay * 31);
     }
 
     #endregion
